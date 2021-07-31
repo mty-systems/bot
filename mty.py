@@ -27,7 +27,14 @@ async def stats(ctx):
     embed=discord.Embed(title="Current server stats", url="https://mty.systems/", color=0xfc03df)
     embed.add_field(name='Online usercount', value=f"{stats['counts']['online']}",  inline=False)
     embed.add_field(name='Total usercount', value=f"{stats['counts']['total']}",  inline=False)
-    await ctx.send(embed=embed)   
+    await ctx.send(embed=embed) 
+
+@bot.command()
+async def vote(ctx):
+    embed=discord.Embed(title="Vote for mty.systems", url="https://topg.org/osu-private-servers/server-632412", color=0xfc03df)
+    embed.add_field(name='How do I vote?', value='You can find the vote page by simply pressing on the Vote for mty.systems text above! Everything else should be self explanatory',  inline=False)
+    embed.add_field(name='Reasons to vote', value='Thanks for your enthusiasm in our server! Voting helps our server grow so everyone will have more people to compete against and befriend!',  inline=False)
+    await ctx.send(embed=embed)
 
 @bot.event
 async def on_ready():
