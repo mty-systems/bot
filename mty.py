@@ -6,6 +6,8 @@ from discord.ext.commands.core import command
 
 bot = commands.Bot(command_prefix=config.prefix)
 TOKEN = config.token
+totalusers = config.totaluser
+onlineusers = config.onlineuser
 
 @bot.command()
 async def test(ctx):
