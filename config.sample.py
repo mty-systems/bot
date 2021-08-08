@@ -1,2 +1,4 @@
 token = ''
 prefix = ''
+totaluser = ''
+onlineuser = ''
