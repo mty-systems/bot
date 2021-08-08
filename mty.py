@@ -36,9 +36,23 @@ async def vote(ctx):
     embed.add_field(name='Reasons to vote', value='Thanks for your enthusiasm in our server! Voting helps our server grow so everyone will have more people to compete against and befriend!',  inline=False)
     await ctx.send(embed=embed)
 
+@tasks.loop(seconds=30)
+async def channelupdate():
+    async with aiohttp.ClientSession() as sesh:
+        async with sesh.get("https://osu.mty.systems/api/get_player_count") as api:
+            stats2 = await api.json()
+
+    channel = await bot.fetch_channel(putidhere);
+    await channel.edit(name=f"Online users: {stats2['counts']['online']}")
+    channel2 = await bot.fetch_channel(putidhere);
+    await channel2.edit(name=f"Total users: {stats2['counts']['total']}")
+
 @bot.event
 async def on_ready():
+    os.system('clear')
+    await bot.change_presence(activity=discord.Game(name="on mty.systems!"))
     print(f'\x1b[35m\n Logged in as {bot.user}\n\x1b[0m')
+    await channelupdate.start()
 
 bot.run(TOKEN)
 
