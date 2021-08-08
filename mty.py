@@ -42,9 +42,9 @@ async def channelupdate():
         async with sesh.get("https://osu.mty.systems/api/get_player_count") as api:
             stats2 = await api.json()
 
-    channel = await bot.fetch_channel(putidhere);
+    channel = await bot.fetch_channel(onlineusers);
     await channel.edit(name=f"Online users: {stats2['counts']['online']}")
-    channel2 = await bot.fetch_channel(putidhere);
+    channel2 = await bot.fetch_channel(totalusers);
     await channel2.edit(name=f"Total users: {stats2['counts']['total']}")
 
 @bot.event
