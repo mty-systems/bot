@@ -56,5 +56,46 @@ async def on_ready():
     print(f'\x1b[35m\n Logged in as {bot.user}\n\x1b[0m')
     await channelupdate.start()
 
+@bot.command()
+async def yt(ctx):
+    if ctx.author.voice is None:
+        return await ctx.send("You aren't in a voice channel retard.")
+    else:
+        link = await togetherControl.create_link(ctx.author.voice.channel.id, 'youtube')
+        await ctx.send(f"Click the blue link!\n{link}")
+
+@bot.command()
+async def poker(ctx):
+    if ctx.author.voice is None:
+        return await ctx.send("You aren't in a voice channel retard.")
+    else:
+        link = await togetherControl.create_link(ctx.author.voice.channel.id, 'poker')
+        await ctx.send(f"Click the blue link!\n{link}")
+
+@bot.command()
+async def chess(ctx):
+    if ctx.author.voice is None:
+        return await ctx.send("You aren't in a voice channel retard.")
+    else:
+        link = await togetherControl.create_link(ctx.author.voice.channel.id, 'chess')
+        await ctx.send(f"Click the blue link!\n{link}")
+
+@bot.command()
+async def betrayal(ctx):
+    if ctx.author.voice is None:
+        return await ctx.send("You aren't in a voice channel retard.")
+    else:
+        link = await togetherControl.create_link(ctx.author.voice.channel.id, 'betrayal')
+        await ctx.send(f"Click the blue link!\n{link}")
+
+@bot.command()
+async def fishing(ctx):
+    if ctx.author.voice is None:
+        return await ctx.send("You aren't in a voice channel retard.")
+    else:
+        link = await togetherControl.create_link(ctx.author.voice.channel.id, 'fishing')
+        await ctx.send(f"Click the blue link!\n{link}")
+
+
 bot.run(TOKEN)
 
