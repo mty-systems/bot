@@ -3,11 +3,14 @@ from discord.http import json_or_text
 import aiohttp
 from discord.ext import commands
 from discord.ext.commands.core import command
+from discordTogether import discordTogether
 
 bot = commands.Bot(command_prefix=config.prefix)
 TOKEN = config.token
 totalusers = config.totaluser
 onlineusers = config.onlineuser
+
+togethercontrol = DiscordTogether(bot)
 
 @bot.command()
 async def test(ctx):
